@@ -1,0 +1,13 @@
+
+.idea/
+Builds/
+Library/
+Assets/Local_Assets/
+Temp/
+Obj/
+UnityGenerated/
+.vs/
+*.csproj
+.idea/
+Logs/
+Packages/
