@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public class Regions
+{
+    public int ID;
+    public double snow;
+    public double ice;
+    public string checkTime;
+
+    public Regions(int ID, double snow, double ice, string checkTime)
+    {
+        this.ID = ID;
+        this.snow = snow;
+        this.ice = ice;
+        this.checkTime = checkTime;
+    }
+}
