@@ -14,9 +14,7 @@ public class DataRepository
 {
 
     private string res;
-
-
-
+    
     private SqliteConnection connection;
 
     private SqliteCommand cmd;
