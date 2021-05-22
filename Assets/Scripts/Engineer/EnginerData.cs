@@ -13,6 +13,9 @@ public class EnginerData : MonoBehaviour
 
     public int selectedId;
 
+    private RegionButton previewButton;
+    
+    
     void Update()
     {
         iceValue.text = $"Толщина слоя{iceSlider.value: 0.0} мм.";
@@ -29,8 +32,19 @@ public class EnginerData : MonoBehaviour
         if (!ice.isOn)
             iceSlider.value = 0.0f;
         
-        api.UpdateRegion(selectedId, snowSlider.value, iceSlider.value, comments.text);
+        //api.UpdateRegion(selectedId, snowSlider.value, iceSlider.value, comments.text);
         
+    }
+
+    public void ShowRegion(RegionButton newRegion)
+    {
         
+       if(previewButton != null)
+           previewButton.Disable();
+
+       selectedId = newRegion.regionId;
+       previewButton = newRegion;
+       
+
     }
 }

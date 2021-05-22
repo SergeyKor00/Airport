@@ -42,7 +42,7 @@ public class RestManager : IRestAPI
         {
             Connect();
             var checkTime = DateTime.Now;
-            cmd.CommandText = "UPDATE Region SET SnowLayer = " + snow + ", IceLayer = " + ice + ", CheckTime = " + checkTime + "WHERE Id = " + id;
+            cmd.CommandText = "UPDATE Region SET SnowLayer = " + snow + ", IceLayer = " + ice + ", CheckTime = " + checkTime.ToString() + "WHERE Id = " + id;
             cmd.ExecuteNonQuery();
         }
         catch (System.Exception e)
