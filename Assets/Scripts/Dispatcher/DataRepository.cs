@@ -66,7 +66,7 @@ public class DataRepository
 
             while (reader.Read())
             {
-                result.Add(new Regions(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetDateTime(3)));
+                //result.Add(new Regions(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetDateTime(3)));
             }
 
             connection.Close();
@@ -132,8 +132,9 @@ public class DataRepository
     public void SelectTaskMech(int techID, int taskID)
     {
         Connect();
-         
-        cmd.CommandText = "Select Task.id, Task.status, Task.Type, Task.lat, Task.long,  Mechanism.id, Mechanism.Status, Mechanism.Type, Mechanism.lat, Mechanism.long, Mechanism.WorkTime From Task Join TaskTech on Task.id = taskID Join Mechanism on "
+
+        cmd.CommandText =
+            "Select Task.id, Task.status, Task.Type, Task.lat, Task.long,  Mechanism.id, Mechanism.Status, Mechanism.Type, Mechanism.lat, Mechanism.long, Mechanism.WorkTime From Task Join TaskTech on Task.id = taskID Join Mechanism on ";
     }
 
 
