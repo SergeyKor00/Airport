@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 public class Mechanism
 {
-    int ID;
-    int type;
-    int status;
-    double longit;
-    double lat;
-    int totalTime;
+    public int ID;
+    public int type;
+    public  int status;
+    public double longit;
+    public double lat;
+    public int totalTime;
 
     public Mechanism(int ID, int type, int status, double longit, double lat, int totalTime)
     {
