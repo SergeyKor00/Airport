@@ -103,6 +103,30 @@ public class DataRepository
         }
     }
 
+    public RegTechCount RegTechCountSelect(int regID, int type)
+    {
+        try
+        {
+            Connect();
+
+            cmd.CommandText = "SELECT * FROM RegTechCount Where regID = " + regID + " and type = " + type;
+            var reader = cmd.ExecuteReader();
+
+            reader.Read();
+
+            var result = new RegTechCount(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
+
+            connection.Close();
+
+            return result;
+        }
+        catch (System.Exception e)
+        {
+            connection.Close();
+            throw e;
+        }
+    }
+
     public List<Mechanism> SelectFreeMech()
     {
         try

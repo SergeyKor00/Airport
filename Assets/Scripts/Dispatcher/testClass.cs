@@ -8,10 +8,14 @@ public class testClass : MonoBehaviour
     void Start()
     {
         var MainAlgorithm = new MainAlgorithm();
-        MainAlgorithm.GetOperationList(1);
         foreach (var item in MainAlgorithm.GetOperationList(1))
         {
             Debug.Log(item);
+        }
+
+        foreach (var item in MainAlgorithm.GetTechCountList(1, MainAlgorithm.GetOperationList(1)))
+        {
+            Debug.Log(item.type + " - " + item.count);
         }
         
     }
