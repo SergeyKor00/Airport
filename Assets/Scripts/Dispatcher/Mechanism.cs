@@ -5,23 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public class Tasks
+public class Mechanism
 {
     int ID;
-    int regID;
-    int status;
-    double lat;
-    double longit;
     int type;
+    int status;
+    double longit;
+    double lat;
+    int totalTime;
 
-    public Tasks(int ID, int regID, int status, double lat, double longit, int type)
+    public Mechanism(int ID, int type, int status, double longit, double lat, int totalTime)
     {
         this.ID = ID;
-        this.regID = regID;
-        this.status = status;
-        this.lat = lat;
-        this.longit = longit;
         this.type = type;
+        this.status = status;
+        this.longit = longit;
+        this.lat = lat;
+        this.totalTime = totalTime;
     }
 }
 
