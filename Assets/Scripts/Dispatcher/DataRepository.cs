@@ -79,7 +79,7 @@ public class DataRepository
         }
     }
 
-    public List<Regions> SelectFromReg(int ID)
+    public Regions SelectFromReg(int ID)
     {
         try
         {
@@ -88,12 +88,9 @@ public class DataRepository
             cmd.CommandText = "SELECT * FROM Region Where ID = " + ID;
             var reader = cmd.ExecuteReader();
 
-            var result = new List<Regions>();
+            reader.Read();
 
-            while (reader.Read())
-            {
-                result.Add(new Regions(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5)));
-            }
+            var result = new Regions(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5));
 
             connection.Close();
 
