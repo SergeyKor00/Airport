@@ -1637,8 +1637,8 @@ MonoBehaviour:
   comments: {fileID: 1355103111}
   iceValue: {fileID: 62619499}
   snowValue: {fileID: 1385404916}
-  selectedId: 0
-  showVariables: 0
+  selectedId: 1
+  showVariables: 1
 --- !u!114 &709111888
 MonoBehaviour:
   m_ObjectHideFlags: 0

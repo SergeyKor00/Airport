@@ -8,7 +8,7 @@ using System.IO;
 
 using Mono.Data.Sqlite;
 using UnityEngine.UI;
-
+using System;
 
 public class DataRepository
 {
@@ -21,11 +21,18 @@ public class DataRepository
 
     private string path;
 
+    public bool IsEnginer;
+
+
+
 
 
     private void Connect()
     {
-        path = Application.streamingAssetsPath + "/database.bytes.db";
+        if (IsEnginer)
+            path = Environment.CurrentDirectory + "/StreammingAssets/database.bytes.db";
+        else
+            path = Application.streamingAssetsPath + "/database.bytes.db";
 
         connection = new SqliteConnection("URI=file:" + path);
         connection.Open();
@@ -34,13 +41,13 @@ public class DataRepository
     }
 
 
-    public void UpdateReg(int id, double snow, double ice, System.DateTime checkTime, string comment, int snowFlow)
+    public void UpdateReg(int id, double snow, double ice, DateTime checkTime, string comment, int snowFlow)
     {
         try
         {
             Connect();
 
-            cmd.CommandText = "UPDATE Region SET SnowLayer = " + snow + ", IceLayer = " + ice + ", CheckTime = " + checkTime+ ", comment = " + comment + " , SnowFlow = " + snowFlow + " WHERE Id = " + id;
+            cmd.CommandText = "UPDATE Region SET SnowLayer = " + snow + ", IceLayer = " + ice + ", CheckTime = '" + checkTime + "', Comment = '" + comment + "' , SnowFlow = " + snowFlow + " WHERE Id = " + id; Debug.Log(cmd.CommandText);
             cmd.ExecuteNonQuery();
             
             connection.Close();

@@ -21,8 +21,8 @@ public class EnginerData : MonoBehaviour
     {
         if (showVariables)
         {
-            iceValue.text = $"Толщина слоя{iceSlider.value: 0.0} мм.";
-            snowValue.text = $"Толщина слоя{snowSlider.value: 0.0} мм.";
+            iceValue.text = $"Толщина слоя{iceSlider.value: 0} мм.";
+            snowValue.text = $"Толщина слоя{snowSlider.value: 0} мм.";
         }
 
     }
@@ -30,15 +30,17 @@ public class EnginerData : MonoBehaviour
 
     public void Submit()
     {
-        IRestAPI api = new RestManager();
+        
 
         if (!snow.isOn)
             snowSlider.value = 0.0f;
         if (!ice.isOn)
             iceSlider.value = 0.0f;
-        
+
         //api.UpdateRegion(selectedId, snowSlider.value, iceSlider.value, comments.text);
-        
+
+
+        new DataRepository().UpdateReg(selectedId, snowSlider.value, iceSlider.value, System.DateTime.Now, " ", 0);
     }
 
     public void ShowRegion(RegionButton newRegion)
