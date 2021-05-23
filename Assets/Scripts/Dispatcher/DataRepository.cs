@@ -79,7 +79,7 @@ public class DataRepository
         }
     }
 
-    public List<Regions> SelectFromReg(int ID)
+    public Regions SelectFromReg(int ID)
     {
         try
         {
@@ -88,12 +88,33 @@ public class DataRepository
             cmd.CommandText = "SELECT * FROM Region Where ID = " + ID;
             var reader = cmd.ExecuteReader();
 
-            var result = new List<Regions>();
+            reader.Read();
 
-            while (reader.Read())
-            {
-                result.Add(new Regions(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5)));
-            }
+            var result = new Regions(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5));
+
+            connection.Close();
+
+            return result;
+        }
+        catch (System.Exception e)
+        {
+            connection.Close();
+            throw e;
+        }
+    }
+
+    public RegTechCount RegTechCountSelect(int regID, int type)
+    {
+        try
+        {
+            Connect();
+
+            cmd.CommandText = "SELECT * FROM RegTechCount Where regID = " + regID + " and type = " + type;
+            var reader = cmd.ExecuteReader();
+
+            reader.Read();
+
+            var result = new RegTechCount(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
 
             connection.Close();
 
