@@ -54,6 +54,30 @@ public class MainAlgorithm
 
         return techCounts;
     }
+
+    public List<Mechanism> GetMechList(List<TechCount> techCounts)
+    {
+        DataRepository dataRepository = new DataRepository();
+        List<Mechanism> mechanisms = dataRepository.SelectFreeMech();
+
+        List<Mechanism> result = new List<Mechanism>();
+
+        for(int i = 0; i < techCounts.Count; i++)
+        {
+            int count = 0;
+            for(int j = 0; j < mechanisms.Count && count < techCounts[i].count; j++)
+            {
+                if (mechanisms[j].type == techCounts[i].type)
+                {
+                    result.Add(mechanisms[j]);
+                    count++;
+                }
+            }
+        }
+
+        return result;
+
+    }
 }
 
 //if(region.snow < 1.0)

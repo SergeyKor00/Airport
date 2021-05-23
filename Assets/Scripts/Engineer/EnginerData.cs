@@ -14,12 +14,17 @@ public class EnginerData : MonoBehaviour
     public int selectedId;
 
     private RegionButton previewButton;
-    
-    
+
+    public bool showVariables;
+
     void Update()
     {
-        iceValue.text = $"Толщина слоя{iceSlider.value: 0.0} мм.";
-        snowValue.text = $"Толщина слоя{snowSlider.value: 0.0} мм.";
+        if (showVariables)
+        {
+            iceValue.text = $"Толщина слоя{iceSlider.value: 0.0} мм.";
+            snowValue.text = $"Толщина слоя{snowSlider.value: 0.0} мм.";
+        }
+
     }
 
 

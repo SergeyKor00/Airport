@@ -32,7 +32,7 @@ public class RegionButton : MonoBehaviour
         else
         {
             data.ShowRegion(this);
-            myImage.color = Color.white;
+            myImage.color = Color.red;
             myText.SetActive(true);
             
             IsActive = true;

@@ -109,7 +109,7 @@ public class DataRepository
         {
             Connect();
 
-            cmd.CommandText = "SELECT * FROM RegTechCount Where regID = " + regID + " and type = " + type;
+            cmd.CommandText = "SELECT * FROM RegTechCount Where RegID = " + regID + " and Type = " + type;
             var reader = cmd.ExecuteReader();
 
             reader.Read();
